@@ -9,10 +9,12 @@ import (
 func CRUDKorzinka1(k *postgres.KorzinkaRepo) {
 	var korzinka1 strac.Korzinka
 	var i int 
-	for i != 0{
-		fmt.Println("\t0.Exit\t1.Create Korzinka\t2.Update Korzinka\t3.Delete Korzinka\t4.Get all korzinka\t5.Get id korzinka")
+	for {
+		fmt.Println("0.Exit\t1.Create Korzinka\t2.Update Korzinka\t3.Delete Korzinka\t4.Get all korzinka\t5.Get id korzinka")
 		fmt.Scan(&i)
 		switch i {
+		case 0:
+			return
 		case 1:	
 			fmt.Printf("User id kiriting: ")
 			fmt.Scan(&korzinka1.User_id)

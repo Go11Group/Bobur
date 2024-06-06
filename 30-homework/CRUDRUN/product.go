@@ -66,7 +66,7 @@ func CRUDProductRun(p *postgres.ProductRepo) {
 			}
 
 			for _, k := range products {
-				fmt.Println(k.Id, k.Name, k.Price, k.Description, k.StockQuantity)
+				fmt.Println(k.Name, k.Price, k.Description, k.StockQuantity)
 			}
 		case 5:
 			var id int
