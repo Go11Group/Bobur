@@ -2,6 +2,7 @@ package postgres
 
 import (
 	"database/sql"
+	"fmt"
 	"model/models"
 )
 
@@ -14,7 +15,8 @@ func NewUserRepo(db *sql.DB) *UserRepo {
 }
 
 func (u *UserRepo) CreateUser(user models.User) error {
-	_, err := u.DB.Exec("insert into user1(name, fname, phone) values($1, $2, $3)", user.Name, user.Lastname, user.Phone)
+	fmt.Println(user)
+	_, err := u.DB.Exec("insert into user1(name, fname, phone) values($1, $2, $3)", &user.Name, &user.Lastname, &user.Phone)
 	if err != nil {
 		return err
 	}
@@ -22,7 +24,7 @@ func (u *UserRepo) CreateUser(user models.User) error {
 }
 
 func (u *UserRepo) DeleteUser(id int) error {
-	_, err := u.DB.Exec("delete from user1 where id=$1", id)
+	_, err := u.DB.Exec("delete from use1 where id=$1", id)
 	if err != nil {
 		return err
 	}
@@ -62,5 +64,6 @@ func (u *UserRepo) GetAllUser() ([]models.User, error) {
 		}
 		users = append(users, user)
 	}
+	// fmt.Println(users)
 	return users, nil
 }

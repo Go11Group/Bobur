@@ -2,16 +2,19 @@ package handler
 
 import (
 	"encoding/json"
+	"fmt"
 	"model/models"
 	"net/http"
 	"strconv"
-	"strings"
+
+	"github.com/gorilla/mux"
 )
 
 func (h *Handler) CreateUser1(w http.ResponseWriter, r *http.Request) {
 	user := models.User{}
 
 	err := json.NewDecoder(r.Body).Decode(&user)
+	fmt.Println("===",user)
 
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -46,7 +49,9 @@ func (h *Handler) UpdateUser1(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *Handler) DeleteCourse1(w http.ResponseWriter, r *http.Request) {
-	d := strings.TrimPrefix(r.URL.Path, "/user/")
+	// d := strings.TrimPrefix(r.URL.Path, "/user/")
+	vars := mux.Vars(r)
+	d := vars["id"]
 	id, err := strconv.Atoi(d)
 	if err != nil {
 		panic(err)
@@ -80,7 +85,9 @@ func (h *Handler) GetAllUser1(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *Handler) GetUser1Id(w http.ResponseWriter, r *http.Request) {
-	d := strings.TrimPrefix(r.URL.Path, "/user/")
+	// d := strings.TrimPrefix(r.URL.Path, "/user/")
+	vars := mux.Vars(r)
+	d := vars["id"]
 	id, err := strconv.Atoi(d)
 	if err != nil {
 		panic(err)

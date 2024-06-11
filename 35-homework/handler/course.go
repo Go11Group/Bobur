@@ -5,7 +5,8 @@ import (
 	"model/models"
 	"net/http"
 	"strconv"
-	"strings"
+
+	"github.com/gorilla/mux"
 )
 
 func (h *Handler) GetAll(w http.ResponseWriter, r *http.Request) {
@@ -39,8 +40,10 @@ func (h *Handler) CreateCourse(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *Handler) DeleteCourse(w http.ResponseWriter, r *http.Request) {
-	d := strings.TrimPrefix(r.URL.Path, "/course/")
-	id, err := strconv.Atoi(d)
+	vars := mux.Vars(r)
+	courseId := vars["id"]
+	// d := strings.TrimPrefix(r.URL.Path, "/course/")
+	id, err := strconv.Atoi(courseId)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
