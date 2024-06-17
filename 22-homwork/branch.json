@@ -1,0 +1,563 @@
+bobur@bobur:~/Desktop/GIRwithWord$ touch main.go
+bobur@bobur:~/Desktop/GIRwithWord$ ls
+main.go
+bobur@bobur:~/Desktop/GIRwithWord$ go run main.go 
+main.go:1:1: expected 'package', found 'EOF'
+bobur@bobur:~/Desktop/GIRwithWord$ git init main.go
+fatal: cannot mkdir main.go: File exists
+bobur@bobur:~/Desktop/GIRwithWord$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /home/bobur/Desktop/GIRwithWord/.git/
+bobur@bobur:~/Desktop/GIRwithWord$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	main.go
+
+nothing added to commit but untracked files present (use "git add" to track)
+bobur@bobur:~/Desktop/GIRwithWord$ git commit -m "birinchi ish" main.go 
+error: pathspec 'main.go' did not match any file(s) known to git
+bobur@bobur:~/Desktop/GIRwithWord$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	main.go
+
+nothing added to commit but untracked files present (use "git add" to track)
+bobur@bobur:~/Desktop/GIRwithWord$ git add main.go 
+bobur@bobur:~/Desktop/GIRwithWord$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   main.go
+
+bobur@bobur:~/Desktop/GIRwithWord$ git commit -m "birinchi ish" main.go 
+[master (root-commit) 73b971c] birinchi ish
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 main.go
+bobur@bobur:~/Desktop/GIRwithWord$ git status
+On branch master
+nothing to commit, working tree clean
+bobur@bobur:~/Desktop/GIRwithWord$ nano main.go 
+bobur@bobur:~/Desktop/GIRwithWord$ cat maq
+cat: maq: No such file or directory
+bobur@bobur:~/Desktop/GIRwithWord$ cat main.go 
+package main
+
+import "fmt"
+
+
+func main() {
+   fmt.Println("Hello GIT")
+
+}
+bobur@bobur:~/Desktop/GIRwithWord$ go run main.go 
+Hello GIT
+bobur@bobur:~/Desktop/GIRwithWord$ git branch
+* master
+bobur@bobur:~/Desktop/GIRwithWord$ git branch Feature-branch
+bobur@bobur:~/Desktop/GIRwithWord$ git branch
+  Feature-branch
+* master
+bobur@bobur:~/Desktop/GIRwithWord$ git touch
+git: 'touch' is not a git command. See 'git --help'.
+bobur@bobur:~/Desktop/GIRwithWord$ git checaut
+git: 'checaut' is not a git command. See 'git --help'.
+
+The most similar command is
+	checkout
+bobur@bobur:~/Desktop/GIRwithWord$ git checkout
+M	main.go
+bobur@bobur:~/Desktop/GIRwithWord$ git checkout Feature-branch 
+M	main.go
+Switched to branch 'Feature-branch'
+bobur@bobur:~/Desktop/GIRwithWord$ git branch
+* Feature-branch
+  master
+bobur@bobur:~/Desktop/GIRwithWord$ git status
+On branch Feature-branch
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   main.go
+
+no changes added to commit (use "git add" and/or "git commit -a")
+bobur@bobur:~/Desktop/GIRwithWord$ git add main.go 
+bobur@bobur:~/Desktop/GIRwithWord$ nano main.go 
+bobur@bobur:~/Desktop/GIRwithWord$ git commit -m "ikkinchi ish" main.go 
+[Feature-branch 7d01488] ikkinchi ish
+ 1 file changed, 10 insertions(+)
+bobur@bobur:~/Desktop/GIRwithWord$ git status
+On branch Feature-branch
+nothing to commit, working tree clean
+bobur@bobur:~/Desktop/GIRwithWord$ git branch
+* Feature-branch
+  master
+bobur@bobur:~/Desktop/GIRwithWord$ git branch
+* Feature-branch
+  master
+bobur@bobur:~/Desktop/GIRwithWord$ git checkout
+bobur@bobur:~/Desktop/GIRwithWord$ git checkout master 
+Switched to branch 'master'
+bobur@bobur:~/Desktop/GIRwithWord$ git branch 
+  Feature-branch
+* master
+bobur@bobur:~/Desktop/GIRwithWord$ git marge Fearture-branch
+git: 'marge' is not a git command. See 'git --help'.
+
+The most similar command is
+	merge
+bobur@bobur:~/Desktop/GIRwithWord$ git status
+On branch master
+nothing to commit, working tree clean
+bobur@bobur:~/Desktop/GIRwithWord$ git log 
+commit 73b971c7aa9922cb172450595a8e65ac60b90154 (HEAD -> master)
+Author: bobur <yusupovbobur1001@gmail.com>
+Date:   Tue May 21 12:35:51 2024 +0500
+
+    birinchi ish
+bobur@bobur:~/Desktop/GIRwithWord$ cat main.go 
+bobur@bobur:~/Desktop/GIRwithWord$ nano main.go 
+bobur@bobur:~/Desktop/GIRwithWord$ nano main.go 
+bobur@bobur:~/Desktop/GIRwithWord$ cat main.go 
+package main
+
+import "fmt"
+
+
+func main() {
+   fmt.Println("Hello GIT")
+
+}
+bobur@bobur:~/Desktop/GIRwithWord$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   main.go
+
+no changes added to commit (use "git add" and/or "git commit -a")
+bobur@bobur:~/Desktop/GIRwithWord$ git add
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+bobur@bobur:~/Desktop/GIRwithWord$ git add main.go 
+bobur@bobur:~/Desktop/GIRwithWord$ cat main.go 
+package main
+
+import "fmt"
+
+
+func main() {
+   fmt.Println("Hello GIT")
+
+}
+bobur@bobur:~/Desktop/GIRwithWord$ go run main.go 
+Hello GIT
+bobur@bobur:~/Desktop/GIRwithWord$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   main.go
+
+bobur@bobur:~/Desktop/GIRwithWord$ git commit -m "birinchi ish" main.go 
+[master 6a62665] birinchi ish
+ 1 file changed, 9 insertions(+)
+bobur@bobur:~/Desktop/GIRwithWord$ git status
+On branch master
+nothing to commit, working tree clean
+bobur@bobur:~/Desktop/GIRwithWord$ git log
+commit 6a62665b2311317f986a86147972d1f767b9c86f (HEAD -> master)
+Author: bobur <yusupovbobur1001@gmail.com>
+Date:   Tue May 21 12:48:46 2024 +0500
+
+    birinchi ish
+
+commit 73b971c7aa9922cb172450595a8e65ac60b90154
+Author: bobur <yusupovbobur1001@gmail.com>
+Date:   Tue May 21 12:35:51 2024 +0500
+
+    birinchi ish
+bobur@bobur:~/Desktop/GIRwithWord$ git branch Feature-branch 
+fatal: A branch named 'Feature-branch' already exists.
+bobur@bobur:~/Desktop/GIRwithWord$ git log
+commit 6a62665b2311317f986a86147972d1f767b9c86f (HEAD -> master)
+Author: bobur <yusupovbobur1001@gmail.com>
+Date:   Tue May 21 12:48:46 2024 +0500
+
+    birinchi ish
+
+commit 73b971c7aa9922cb172450595a8e65ac60b90154
+Author: bobur <yusupovbobur1001@gmail.com>
+Date:   Tue May 21 12:35:51 2024 +0500
+
+    birinchi ish
+bobur@bobur:~/Desktop/GIRwithWord$ cat main.go 
+package main
+
+import "fmt"
+
+
+func main() {
+   fmt.Println("Hello GIT")
+
+}
+bobur@bobur:~/Desktop/GIRwithWord$ nano main.go 
+bobur@bobur:~/Desktop/GIRwithWord$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   main.go
+
+no changes added to commit (use "git add" and/or "git commit -a")
+bobur@bobur:~/Desktop/GIRwithWord$ git add main.go 
+bobur@bobur:~/Desktop/GIRwithWord$ git commit -m "bobur@bobur:~/Desktop/GIRwithWord$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint:   git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint:   git branch -m <name>
+Initialized empty Git repository in /home/bobur/Desktop/GIRwithWord/.git/
+bobur@bobur:~/Desktop/GIRwithWord$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+            s"
+bash: file: No such file or directory
+bobur@bobur:~/Desktop/GIRwithWord$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   main.go
+
+bobur@bobur:~/Desktop/GIRwithWord$ git commit -m "Feache branch da" main.go 
+[master 0ab1e43] Feache branch da
+ 1 file changed, 1 insertion(+)
+bobur@bobur:~/Desktop/GIRwithWord$ git log
+commit 0ab1e431518556a9f2207d295c287919ffb6f5a2 (HEAD -> master)
+Author: bobur <yusupovbobur1001@gmail.com>
+Date:   Tue May 21 12:53:32 2024 +0500
+
+    Feache branch da
+
+commit 6a62665b2311317f986a86147972d1f767b9c86f
+Author: bobur <yusupovbobur1001@gmail.com>
+Date:   Tue May 21 12:48:46 2024 +0500
+
+    birinchi ish
+
+commit 73b971c7aa9922cb172450595a8e65ac60b90154
+Author: bobur <yusupovbobur1001@gmail.com>
+Date:   Tue May 21 12:35:51 2024 +0500
+
+    birinchi ish
+bobur@bobur:~/Desktop/GIRwithWord$ git branch master 
+fatal: A branch named 'master' already exists.
+bobur@bobur:~/Desktop/GIRwithWord$ git status
+On branch master
+nothing to commit, working tree clean
+bobur@bobur:~/Desktop/GIRwithWord$ cat main.go 
+package main
+
+import "fmt"
+
+
+func main() {
+   fmt.Println("Hello GIT")
+   fmt.Println("Bye GIT")
+
+}
+bobur@bobur:~/Desktop/GIRwithWord$ git branch 
+  Feature-branch
+* master
+bobur@bobur:~/Desktop/GIRwithWord$ git branch Feature-branch 
+fatal: A branch named 'Feature-branch' already exists.
+bobur@bobur:~/Desktop/GIRwithWord$ cat man
+cat: man: No such file or directory
+bobur@bobur:~/Desktop/GIRwithWord$ cat main.go 
+package main
+
+import "fmt"
+
+
+func main() {
+   fmt.Println("Hello GIT")
+   fmt.Println("Bye GIT")
+
+}
+bobur@bobur:~/Desktop/GIRwithWord$ nano main.go 
+bobur@bobur:~/Desktop/GIRwithWord$ git add main.go 
+bobur@bobur:~/Desktop/GIRwithWord$ git commit -m "ikkinchi ishlar" main.go 
+[master 87bd479] ikkinchi ishlar
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+bobur@bobur:~/Desktop/GIRwithWord$ git log 
+commit 87bd47973c48cb9bd2208b6cd13be0a8d493c3e2 (HEAD -> master)
+Author: bobur <yusupovbobur1001@gmail.com>
+Date:   Tue May 21 12:55:18 2024 +0500
+
+    ikkinchi ishlar
+
+commit 0ab1e431518556a9f2207d295c287919ffb6f5a2
+Author: bobur <yusupovbobur1001@gmail.com>
+Date:   Tue May 21 12:53:32 2024 +0500
+
+    Feache branch da
+
+commit 6a62665b2311317f986a86147972d1f767b9c86f
+Author: bobur <yusupovbobur1001@gmail.com>
+Date:   Tue May 21 12:48:46 2024 +0500
+
+    birinchi ish
+
+commit 73b971c7aa9922cb172450595a8e65ac60b90154
+Author: bobur <yusupovbobur1001@gmail.com>
+Date:   Tue May 21 12:35:51 2024 +0500
+
+    birinchi ish
+
+[1]+  Stopped                 git log
+bobur@bobur:~/Desktop/GIRwithWord$ git branch 
+  Feature-branch
+* master
+bobur@bobur:~/Desktop/GIRwithWord$ cat main.go 
+package main
+
+import "fmt"
+
+
+func main() {
+   fmt.Println("Hello GIT")
+   fmt.Println("Bye GIT")
+   fmt.Println("----------")
+}
+bobur@bobur:~/Desktop/GIRwithWord$ git branch Feature-branch 
+fatal: A branch named 'Feature-branch' already exists.
+bobur@bobur:~/Desktop/GIRwithWord$ cat main.go 
+package main
+
+import "fmt"
+
+
+func main() {
+   fmt.Println("Hello GIT")
+   fmt.Println("Bye GIT")
+   fmt.Println("----------")
+}
+---------------------------------------------------------------------------------------------------------------
+
+bobur@bobur:~/Desktop/New Folder$ touch br.go
+bobur@bobur:~/Desktop/New Folder$ car br.go 
+Command 'car' not found, but can be installed with:
+sudo apt install ucommon-utils
+bobur@bobur:~/Desktop/New Folder$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /home/bobur/Desktop/New Folder/.git/
+bobur@bobur:~/Desktop/New Folder$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	br.go
+
+nothing added to commit but untracked files present (use "git add" to track)
+bobur@bobur:~/Desktop/New Folder$ git branch br.go
+fatal: Not a valid object name: 'master'.
+bobur@bobur:~/Desktop/New Folder$ git add br.go 
+bobur@bobur:~/Desktop/New Folder$ nano br.go 
+bobur@bobur:~/Desktop/New Folder$ git commit -m "birinchi commit" br.go 
+[master (root-commit) 7ba055c] birinchi commit
+ 1 file changed, 8 insertions(+)
+ create mode 100644 br.go
+bobur@bobur:~/Desktop/New Folder$ gir status
+Command 'gir' not found, did you mean:
+  command 'gie' from deb proj-bin (8.2.1-1)
+  command 'gio' from deb libglib2.0-bin (2.72.4-0ubuntu2.2)
+  command 'dir' from deb coreutils (8.32-4.1ubuntu1)
+  command 'git' from deb git (1:2.34.1-1ubuntu1.10)
+  command 'xir' from deb libxir-utils (1.4-2ubuntu1)
+  command 'gpr' from deb gpr (0.15deb-2build1)
+  command 'gid' from deb id-utils (4.6.28-20200521ss15dab)
+  command 'gip' from deb gip (1.7.0-1-5)
+Try: sudo apt install <deb name>
+bobur@bobur:~/Desktop/New Folder$ git branch
+* master
+bobur@bobur:~/Desktop/New Folder$ git branch bobur
+bobur@bobur:~/Desktop/New Folder$ git branch
+  bobur
+* master
+bobur@bobur:~/Desktop/New Folder$ git checkout bobur 
+Switched to branch 'bobur'
+bobur@bobur:~/Desktop/New Folder$ git branch 
+* bobur
+  master
+bobur@bobur:~/Desktop/New Folder$ git status
+On branch bobur
+nothing to commit, working tree clean
+bobur@bobur:~/Desktop/New Folder$ cat br.go 
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Salom git")
+
+}
+bobur@bobur:~/Desktop/New Folder$ nano br.go 
+bobur@bobur:~/Desktop/New Folder$ git status
+On branch bobur
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   br.go
+
+no changes added to commit (use "git add" and/or "git commit -a")
+bobur@bobur:~/Desktop/New Folder$ git add br.go 
+bobur@bobur:~/Desktop/New Folder$ git commit -m "ikkinchi commit" br.go 
+[bobur fb3c7bd] ikkinchi commit
+ 1 file changed, 1 insertion(+)
+bobur@bobur:~/Desktop/New Folder$ git log
+commit fb3c7bd785ea7ed9d0ccd18aca1c190c2cadb444 (HEAD -> bobur)
+Author: bobur <yusupovbobur1001@gmail.com>
+Date:   Tue May 21 16:37:09 2024 +0500
+
+    ikkinchi commit
+
+commit 7ba055cf979ebfd91c8b97d7b3d004b4454ec078 (master)
+Author: bobur <yusupovbobur1001@gmail.com>
+Date:   Tue May 21 16:35:09 2024 +0500
+
+    birinchi commit
+bobur@bobur:~/Desktop/New Folder$ git checkout master 
+Switched to branch 'master'
+bobur@bobur:~/Desktop/New Folder$ git merge bobur 
+Updating 7ba055c..fb3c7bd
+Fast-forward
+ br.go | 1 +
+ 1 file changed, 1 insertion(+)
+bobur@bobur:~/Desktop/New Folder$ cat br.go 
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Salom git")
+	fmt.Println("hayir git")
+
+}
+bobur@bobur:~/Desktop/New Folder$ nano br.go 
+bobur@bobur:~/Desktop/New Folder$ git add br.go 
+bobur@bobur:~/Desktop/New Folder$ git commit -m "masterda ozgarish" br.go 
+[master 829ce74] masterda ozgarish
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+bobur@bobur:~/Desktop/New Folder$ git checkout bobur 
+Switched to branch 'bobur'
+bobur@bobur:~/Desktop/New Folder$ cat br.go 
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Salom git")
+	fmt.Println("hayir git")
+
+}
+bobur@bobur:~/Desktop/New Folder$ nano br.go 
+bobur@bobur:~/Desktop/New Folder$ git add br.go 
+bobur@bobur:~/Desktop/New Folder$ git commit -m "boburda ozgarish" br.go 
+[bobur 4a8581f] boburda ozgarish
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+bobur@bobur:~/Desktop/New Folder$ git checkout bobur 
+Already on 'bobur'
+bobur@bobur:~/Desktop/New Folder$ git checkout master 
+Switched to branch 'master'
+bobur@bobur:~/Desktop/New Folder$ git branch
+  bobur
+* master
+bobur@bobur:~/Desktop/New Folder$ git merge bobur 
+Auto-merging br.go
+CONFLICT (content): Merge conflict in br.go
+Automatic merge failed; fix conflicts and then commit the result.
+bobur@bobur:~/Desktop/New Folder$ cat br.go 
+package main
+
+import "fmt"
+
+func main() {
+<<<<<<< HEAD
+	fmt.Println("1Salom git")
+=======
+	fmt.Println("2Salom git")
+>>>>>>> bobur
+	fmt.Println("hayir git")
+
+}
+bobur@bobur:~/Desktop/New Folder$ nano br.go 
+bobur@bobur:~/Desktop/New Folder$ ^C
+bobur@bobur:~/Desktop/New Folder$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+	both modified:   br.go
+
+no changes added to commit (use "git add" and/or "git commit -a")
+bobur@bobur:~/Desktop/New Folder$ git add br.go 
+bobur@bobur:~/Desktop/New Folder$ git commit -m "confilct togirlandi" br.go 
+fatal: cannot do a partial commit during a merge.
+bobur@bobur:~/Desktop/New Folder$ git commit -a "confilct togirlandi" br.go 
+fatal: paths 'confilct togirlandi ...' with -a does not make sense
+bobur@bobur:~/Desktop/New Folder$ git commit -m "Conflict resolved"
+[master a747046] Conflict resolved
+bobur@bobur:~/Desktop/New Folder$ cat br.go 
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("2Salom git")
+	fmt.Println("hayir git")
+}
+bobur@bobur:~/Desktop/New Folder$ 
+
