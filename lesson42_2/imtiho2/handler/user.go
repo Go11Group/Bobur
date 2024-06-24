@@ -21,7 +21,7 @@ func (h *Handler) UserCreate(g *gin.Context) {
 	err = h.User.CreateUser(&user)
 	if err != nil {
 		g.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
+		return	
 	}
 	g.JSON(http.StatusOK, "SUCCESS")
 }
