@@ -1,0 +1,21 @@
+syntax="proto3";
+
+option go_package="./genproto";
+
+service UserService{
+    rpc CreateUser(UserReq) returns(User);
+    rpc GetById(Id) returns(User);
+}
+
+message UserReq{
+    string name = 1;
+}
+
+message User{
+   map<>
+}
+
+message Id{
+    int32 id = 1;
+}
+

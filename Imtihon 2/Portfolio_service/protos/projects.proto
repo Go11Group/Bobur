@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+option go_package = "/genproto";
+
+package protos;
+
+import "common.proto";
+
+service ProjectsService {
+    rpc CreateProject (CreateProjectRequest) returns (Void) {}
+    rpc UpdateProject (UpdateProjectRequest) returns (Void) {}
+    rpc DeleteProject (ById) returns (Void) {}
+    rpc GetProject (ById) returns (Project) {}
+    rpc GetProjects (ProjectFilter) returns (Projects) {}
+}
+
+message CreateProjectRequest {
+    string id = 1;
+    string user_id = 2;
+    string title = 3;
+    string description = 4;
+    string url = 5;
+}
+
+message Project {
+    string id = 1;
+    string user_id = 2;
+    string title = 3;
+    string description = 4;
+    string url = 5;
+}
+
+message UpdateProjectRequest {
+    string id = 1;
+    string user_id = 2;
+    string title = 3;
+    string description = 4;
+    string url = 5;
+}
+
+
+message ProjectFilter {
+    string user_id = 1;
+    string url = 2;
+}
+
+message Projects {
+    repeated Project Projects = 1;
+}
+

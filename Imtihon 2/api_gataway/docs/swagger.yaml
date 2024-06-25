@@ -1,0 +1,882 @@
+definitions:
+  genproto.CreateEducationRequest:
+    properties:
+      degree:
+        type: string
+      end_date:
+        type: string
+      field_of_study:
+        type: string
+      id:
+        type: string
+      institution:
+        type: string
+      start_date:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.CreateExperienceRequest:
+    properties:
+      company:
+        type: string
+      description:
+        type: string
+      end_date:
+        type: string
+      id:
+        type: string
+      start_date:
+        type: string
+      title:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.CreateProjectRequest:
+    properties:
+      description:
+        type: string
+      id:
+        type: string
+      title:
+        type: string
+      url:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.CreateSkillRequest:
+    properties:
+      id:
+        type: string
+      level:
+        type: string
+      name:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.Education:
+    properties:
+      degree:
+        type: string
+      end_date:
+        type: string
+      field_of_study:
+        type: string
+      id:
+        type: string
+      institution:
+        type: string
+      start_date:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.Skill:
+    properties:
+      id:
+        type: string
+      level:
+        type: string
+      name:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.Skills:
+    properties:
+      Skills:
+        items:
+          $ref: '#/definitions/genproto.Skill'
+        type: array
+    type: object
+  genproto.UpdateEducationRequest:
+    properties:
+      degree:
+        type: string
+      deleted_at:
+        type: integer
+      end_date:
+        type: string
+      field_of_study:
+        type: string
+      id:
+        type: string
+      institution:
+        type: string
+      start_date:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.UpdateExperienceRequest:
+    properties:
+      company:
+        type: string
+      deleted_at:
+        type: integer
+      description:
+        type: string
+      end_date:
+        type: string
+      id:
+        type: string
+      start_date:
+        type: string
+      title:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.UpdateProjectRequest:
+    properties:
+      description:
+        type: string
+      id:
+        type: string
+      title:
+        type: string
+      url:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.UpdateSkillRequest:
+    properties:
+      id:
+        type: string
+      level:
+        type: string
+      name:
+        type: string
+      user_id:
+        type: string
+    type: object
+info:
+  contact: {}
+  title: Portfolio swagger UI
+paths:
+  /education/create:
+    post:
+      consumes:
+      - application/json
+      description: This API for creating education
+      parameters:
+      - description: Education
+        in: body
+        name: education
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.CreateEducationRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Create Education
+      tags:
+      - education
+  /education/delete/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: This API for deleting education
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Delete Education
+      tags:
+      - education
+  /education/get/{id}:
+    get:
+      consumes:
+      - application/json
+      description: This API for getting education
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.Education'
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Get Education
+      tags:
+      - education
+  /education/getall:
+    get:
+      consumes:
+      - application/json
+      description: This API for getting educations
+      parameters:
+      - description: UserId
+        in: query
+        name: user_id
+        type: string
+      - description: Institution
+        in: query
+        name: institution
+        type: string
+      - description: Degree
+        in: query
+        name: degree
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.Education'
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Get Educations
+      tags:
+      - education
+  /education/getallbyuser:
+    get:
+      consumes:
+      - application/json
+      description: This API for getting educations
+      parameters:
+      - description: UserId
+        in: query
+        name: user_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.Education'
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Get Educations By UserId
+      tags:
+      - education
+  /education/update:
+    put:
+      consumes:
+      - application/json
+      description: This API for updating education
+      parameters:
+      - description: Education
+        in: body
+        name: education
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.UpdateEducationRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Update Education
+      tags:
+      - education
+  /experience/create:
+    post:
+      consumes:
+      - application/json
+      description: This API for creating experience
+      parameters:
+      - description: Experience
+        in: body
+        name: experience
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.CreateExperienceRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Create Experience
+      tags:
+      - experience
+  /experience/delete/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: This API for deleting experience
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Delete Experience
+      tags:
+      - experience
+  /experience/get/{id}:
+    get:
+      consumes:
+      - application/json
+      description: This API for getting experience
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Get Experience
+      tags:
+      - experience
+  /experience/getall:
+    get:
+      consumes:
+      - application/json
+      description: This API for getting experiences
+      parameters:
+      - description: Experience User ID
+        in: query
+        name: user_id
+        type: string
+      - description: Company Name
+        in: query
+        name: company
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Get Experiences
+      tags:
+      - experience
+  /experience/getallbyuser:
+    get:
+      consumes:
+      - application/json
+      description: This API for getting experiences
+      parameters:
+      - description: Experience User ID
+        in: query
+        name: user_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Get Experiences By User
+      tags:
+      - experience
+  /experience/update:
+    put:
+      consumes:
+      - application/json
+      description: This API for updating experience
+      parameters:
+      - description: Experience
+        in: body
+        name: experience
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.UpdateExperienceRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Update Experience
+      tags:
+      - experience
+  /project/create:
+    post:
+      consumes:
+      - application/json
+      description: This API for creating project
+      parameters:
+      - description: Project
+        in: body
+        name: project
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.CreateProjectRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Create Project
+      tags:
+      - project
+  /project/delete/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: This API for deleting project
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Delete Project
+      tags:
+      - project
+  /project/get/{id}:
+    get:
+      consumes:
+      - application/json
+      description: This API for getting project
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Get Project
+      tags:
+      - project
+  /project/getall:
+    get:
+      consumes:
+      - application/json
+      description: This API for getting projects
+      parameters:
+      - description: User ID
+        in: query
+        name: user_id
+        type: string
+      - description: Project url
+        in: query
+        name: url
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Get Projects
+      tags:
+      - project
+  /project/getallbyuser:
+    get:
+      consumes:
+      - application/json
+      description: This API for getting projects
+      parameters:
+      - description: User ID
+        in: query
+        name: user_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Get Projects By User
+      tags:
+      - project
+  /project/update:
+    put:
+      consumes:
+      - application/json
+      description: This API for updating project
+      parameters:
+      - description: Project
+        in: body
+        name: project
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.UpdateProjectRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Update Project
+      tags:
+      - project
+  /skill/create:
+    post:
+      consumes:
+      - application/json
+      description: This API for creating skill
+      parameters:
+      - description: Skill
+        in: body
+        name: skill
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.CreateSkillRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Create Skill
+      tags:
+      - skill
+  /skill/delete/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: This API for deleting skill
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Delete Skill
+      tags:
+      - skill
+  /skill/get/{id}:
+    get:
+      consumes:
+      - application/json
+      description: This API for getting skill
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Get Skill
+      tags:
+      - skill
+  /skill/getall:
+    get:
+      consumes:
+      - application/json
+      description: This API for getting skills
+      parameters:
+      - description: Skill Name
+        in: query
+        name: name
+        type: string
+      - description: Skill Level
+        in: query
+        name: user_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.Skills'
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Get Skills
+      tags:
+      - skill
+  /skill/getallbyuser:
+    get:
+      consumes:
+      - application/json
+      description: This API for getting skills
+      parameters:
+      - description: Skill User Id
+        in: query
+        name: user_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.Skills'
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Get Skills By User
+      tags:
+      - skill
+  /skill/update:
+    put:
+      consumes:
+      - application/json
+      description: This API for updating skill
+      parameters:
+      - description: Skill
+        in: body
+        name: skill
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.UpdateSkillRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Update Skill
+      tags:
+      - skill
+securityDefinitions:
+  BearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

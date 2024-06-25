@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "genproto/generator/";
+
+package protos;
+
+service Generator {
+  rpc RandomPicker(Request) returns (Response) {}
+}
+
+message Request {
+  string name = 1;
+}
+
+message Response {
+  string fname = 1;
+}

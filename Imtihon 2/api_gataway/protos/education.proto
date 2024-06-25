@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+option go_package = "/genproto";
+
+package protos;
+
+import "common.proto";
+
+service EducationService {
+    rpc CreateEducation (CreateEducationRequest) returns (Education) {}
+    rpc UpdateEducation (UpdateEducationRequest) returns (Void) {}
+    rpc DeleteEducation (ById) returns (Void) {}
+    rpc GetEducation (ById) returns (Education) {}
+    rpc GetEducations (EducationFilter) returns (Educations) {}
+}
+
+message Education {
+    string id = 1;
+    string user_id = 2;
+    string institution = 3;
+    string degree = 4;
+    string field_of_study = 5;
+    string start_date = 6;
+    string end_date = 7;
+}
+
+message CreateEducationRequest {
+    string id =1;
+    string user_id = 2;
+    string institution = 3;
+    string degree = 4;
+    string field_of_study = 5;
+    string start_date = 6;
+    string end_date = 7;
+}
+
+message UpdateEducationRequest {
+    string id = 1;
+    string user_id = 2;
+    string institution = 3;
+    string degree = 4;
+    string field_of_study = 5;
+    string start_date = 6;
+    string end_date = 7;
+    int64 deleted_at = 8;
+}
+
+message EducationFilter {
+    string user_id = 1;
+    string institution = 2;
+    string degree = 3;
+    string field_of_study = 4;
+    string start_date = 5;
+    string end_date = 6;
+}
+
+message Educations {
+    repeated Education Educations = 1;
+}

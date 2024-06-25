@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+option go_package = "/genproto";
+
+package protos;
+
+import "common.proto";
+
+service ExperiencesService {
+    rpc CreateExperience (CreateExperienceRequest) returns (Experience) {}
+    rpc UpdateExperience (UpdateExperienceRequest) returns (Void) {}
+    rpc DeleteExperience (ById) returns (Void) {}
+    rpc GetExperience (ById) returns (Experience) {}
+    rpc GetExperiences (ExperienceFilter) returns (Experiences) {}
+}
+
+message Experience {
+    string id = 1;
+    string user_id = 2;
+    string title = 3;
+    string company = 4;
+    string description = 5;
+    string start_date = 6;
+    string end_date = 7;
+}
+
+message CreateExperienceRequest {
+    string id = 1;
+    string user_id = 2;
+    string title = 3;
+    string company = 4;
+    string description = 5;
+    string start_date = 6;
+    string end_date = 7;
+}
+
+message UpdateExperienceRequest {
+    string id = 1;
+    string user_id = 2;
+    string title = 3;
+    string company = 4;
+    string description = 5;
+    string start_date = 6;
+    string end_date = 7;
+    int64 deleted_at = 8;
+}
+
+message ExperienceFilter {
+    string user_id = 1;
+    string company = 2;
+    string start_date = 3;
+    string end_date = 4;
+}
+
+message Experiences {
+    repeated Experience Experiences = 1;
+}
+
