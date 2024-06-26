@@ -24,18 +24,32 @@ func main() {
 
 	client := pb.NewLibraryServiceClient(conn)
 
-	// book yaratish
-	req := &pb.AddBookRequest{
-		Title:         "asdfasd",
-		Author:        "bobur",
-		YearPublished: 2024,
-	}
+	// ------------ book yaratish -----------
+	// req := &pb.AddBookRequest{
+	// 	Title:         "asdfasd",
+	// 	Author:        "bobur",
+	// 	YearPublished: 2024,
+	// }
+	// resp, err := client.AddBook(context.Background(), req)
+	// if err != nil {
+	// 	log.Fatalf("Error calling AddBook: %v", err)
+	// }
+	// -----------------------------------------------
 
-	resp, err := client.AddBook(context.Background(), req)
 
-	if err != nil {
-		log.Fatalf("Error calling AddBook: %v", err)
-	}
+	// -------- searchbook qilish -----------
+	// req := &pb.SearchBookRequest{
+	// 	Query: "1",
+	// }
+	// resp, err := client.SearchBook(context.Background(), req)
+	// if err != nil {
+	// 	log.Fatal("Error calling SearchBook: %v", err)
+	// 	return
+	// }
+
+	// ----------------------------------------------
+
+	
 
 	fmt.Printf("Response: %s\n", resp)
 }

@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	pb "model/genproto/generator"
-	// pb "model/genproto/generator"
 	"model/postgres"
 	"net"
 
@@ -14,19 +13,19 @@ import (
 
 type server struct {
 	pb.UnimplementedLibraryServiceServer
-
 	Library *postgres.LibraryRepo
 }
 
+// client dan ma'lumot keladi va id sini qaytaradi
 func (s *server) AddBook(conx context.Context, req *pb.AddBookRequest) (*pb.AddBookResponse, error) {
 	resp, err := s.Library.ADDBOOK(req)
 	if err != nil {
-		fmt.Println(err, "1-1-1")
 		return nil, err
 	}
 	return resp, nil
 }
 
+// 
 func (s *server) SearchBook(conx context.Context, req *pb.SearchBookRequest) (*pb.SearchBookResponse, error) {
 	resp, err := s.Library.SearchBook(req)
 	if err != nil {
@@ -43,7 +42,6 @@ func (s *server) BorrowBook(conx context.Context, req *pb.BorrowBookRequest) (*p
 func main() {
 	db, err := postgres.ConnectDB()
 	if err != nil {
-		fmt.Println(err)
 		panic(err)
 	}
 
@@ -55,8 +53,12 @@ func main() {
 		log.Fatalf("Failed to listen: %v", err)
 	}
 
+	lr := postgres.NewLibrayRepo(db)
+
 	grpcServer := grpc.NewServer()
-	pb.RegisterLibraryServiceServer(grpcServer, &server{})
+	pb.RegisterLibraryServiceServer(grpcServer, &server{
+		Library: lr,
+	})
 
 	fmt.Println("Server is ready to accept requests on port 50051")
 	if err := grpcServer.Serve(listener); err != nil {
