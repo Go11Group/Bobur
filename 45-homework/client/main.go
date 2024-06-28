@@ -25,15 +25,15 @@ func main() {
 	client := pb.NewLibraryServiceClient(conn)
 
 	// ------------ book yaratish -----------
-	// req := &pb.AddBookRequest{
-	// 	Title:         "asdfasd",
-	// 	Author:        "bobur",
-	// 	YearPublished: 2024,
-	// }
-	// resp, err := client.AddBook(context.Background(), req)
-	// if err != nil {
-	// 	log.Fatalf("Error calling AddBook: %v", err)
-	// }
+	req := &pb.AddBookRequest{
+		Title:         "asdfasd",
+		Author:        "bobur",
+		YearPublished: 2024,
+	}
+	resp, err := client.AddBook(context.Background(), req)
+	if err != nil {
+		log.Fatalf("Error calling AddBook: %v", err)
+	}
 	// -----------------------------------------------
 
 
@@ -49,7 +49,7 @@ func main() {
 
 	// ----------------------------------------------
 
-	
+
 
 	fmt.Printf("Response: %s\n", resp)
 }

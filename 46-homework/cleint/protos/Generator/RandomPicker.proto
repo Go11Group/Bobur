@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+
+option go_package = "genproto/prooto/";
+
+package proto;
+
+service WeatherService {
+  rpc ReportWeatherCondition(ReportWeatherRequest) returns (ReportWeatherReponse) {}
+  rpc GetCurrentWeather(WeatherRequest) returns (WeatherResponse) {}
+  rpc GetWeatherForecast(WeatherRequest) returns (WeatherForecastResponse) {}
+
+}
+
+message ReportWeatherRequest {
+  string name = 1;
+  string date = 2;
+  string windS = 3;
+  string tempernature = 4;
+  string rain = 5;
+  string sun = 6;
+}
+
+message ReportWeatherReponse {
+  string query = 1;
+}
+
+message WeatherRequest {
+  string city = 1; 
+}
+
+message WeatherResponse {
+  string city = 1;      
+  double temperature = 2; 
+  string description = 3; 
+}                                       
+                
+message WeatherForecastResponse {
+  string city = 1;                  
+  repeated Forecast dailyForecasts = 2; 
+}
+
+message Forecast {
+  string date = 1;          
+  double temperature = 2;  
+  string description = 3;  
+}
+
+
+
+
+

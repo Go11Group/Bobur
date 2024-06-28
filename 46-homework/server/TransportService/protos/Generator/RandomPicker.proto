@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+option go_package = "genproto/prooto/";
+
+package proto;
+
+service TransportService {
+  rpc GetBusSchedule (BusScheduleRequest) returns (BusScheduleResponse);
+  rpc TrackBusLocation (BusLocationRequest) returns (BusLocationResponse);
+  rpc ReportTrafficJam (TrafficJamReport) returns (ReportAcknowledgment);
+}
+
+message BusScheduleRequest {
+  string routeNumber = 1; // Avtobus yo'nalish raqami
+  string date = 2; // So'ralgan sana (masalan, "2024-06-28")
+}
+
+message BusScheduleResponse {
+  repeated BusSchedule schedule = 1; // Avtobus jadvali ro'yxati
+}
+
+message BusSchedule {
+  string departureTime = 1; // Jo'nash vaqti
+  string arrivalTime = 2; // Kelish vaqti
+  string stopName = 3; // To'xtash joyi nomi
+}
+
+message BusLocationRequest {
+  string busId = 1; // Avtobus ID raqami yoki unikal identifikatori
+}
+
+message BusLocationResponse {
+  string busId = 1; // Avtobus ID raqami yoki unikal identifikatori
+  float latitude = 2; // Hozirgi kenglik
+  float longitude = 3; // Hozirgi uzunlik
+  string timestamp = 4; // Ma'lumot vaqt muhri
+}
+
+message TrafficJamReport {
+  string location = 1; // Tirbandlik joylashuvi
+  string severity = 2; // Tirbandlik darajasi (masalan, "kam", "o'rta", "og'ir")
+  string description = 3; // Tirbandlik haqida qo'shimcha ma'lumot
+  string reportedAt = 4; // Hisobot berilgan vaqt
+}
+
+message ReportAcknowledgment {
+  bool success = 1; // Hisobot muvaffaqiyatli yuborilganligini tasdiqlash
+}

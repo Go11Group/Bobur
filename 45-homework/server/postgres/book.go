@@ -56,3 +56,6 @@ func (l *LibraryRepo) SearchBook(q *pb.SearchBookRequest) (*pb.SearchBookRespons
 	return &books, nil
 }
 
+// func (l *LibraryRepo) BOORROBook(q *pb.BorrowBookRequest) (*pb.BorrowBookResponse, error) {
+// 	_, err := l.Db.Exec("insert into borrow")
+// }
