@@ -3,14 +3,14 @@ CREATE TABLE weather1 (
     name VARCHAR,       
     date VARCHAR,        
     windS VARCHAR,      
-    temperature DECIMAL(5,2), 
+    temperature VARCHAR, 
     rain VARCHAR,       
     sun VARCHAR         
 );
 
 CREATE TABLE weather2 (
     city VARCHAR,
-    temperature integer,
+    temperature VARCHAR,
     description VARCHAR
 );
 
@@ -20,7 +20,7 @@ CREATE TABLE weather3 (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     date VARCHAR,
     city VARCHAR NOT NULL,
-    temperature DECIMAL(5,2),
+    temperature VARCHAR,
     description VARCHAR,
 ); 
 

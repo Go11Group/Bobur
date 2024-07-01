@@ -24,7 +24,7 @@ func (w *WeatherRepo) GetWeather(req *pb.WeatherRequest) (*pb.WeatherResponse, e
 }
 
 func (w *WeatherRepo) ReportWeather(req *pb.ReportWeatherRequest) (*pb.ReportWeatherReponse, error) {
-	_, err := w.Db.Exec("inser into weather1(name, date, windS, tempernature, rain, sun) values($1, $2, $3, $4, $5, $6)",
+	_, err := w.Db.Exec("insert into weather1(name, date, windS, temperature, rain, sun) values($1, $2, $3, $4, $5, $6)",
 		req.Name, req.Date, req.WindS, req.Tempernature, req.Rain, req.Sun)
 	if err != nil {
 		return nil, err
