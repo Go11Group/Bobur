@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/collaboration_service/storage/postgres/collaboration.go" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/composition_service/storage/postgres/composition.go" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/composition_service/storage/postgres/track.go" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/discovery_service/storage/postgres/compositionMetaData.go" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/user_service/storage/postgres/user_profile.go" dialect="GenericSQL" />
   </component>
 </project>

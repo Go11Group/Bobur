@@ -49,7 +49,7 @@ func (repo CollaborationRepository) DeleteCollaboration(collaboration *pb.Delete
 //		}
 //		return nil, err
 //	}
-func (repo CollaborationRepository) GetCollaboration(collaboration *pb.GetCollaboratorsRequest) (*pb.CollaborationsResponse, error) {
+func (repo CollaborationRepository) GetCollaborators(collaboration *pb.GetCollaboratorsRequest) (*pb.CollaborationsResponse, error) {
 	var (
 		params = make(map[string]interface{})
 		arr    []interface{}
