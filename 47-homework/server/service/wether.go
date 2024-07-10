@@ -21,7 +21,7 @@ func (w *weather) ReportWeatherCondition(cntx context.Context, req *pb.ReportWea
 	if err != nil {
 		return nil, err
 	}
-
+	
 	return resp, nil
 }
 

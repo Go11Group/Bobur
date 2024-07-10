@@ -25,13 +25,14 @@ func main() {
 	}
 	fmt.Println("Server lesterner 500051...")
 	lib := service.NewWeatherSerice(postgres.NewWeatherRepo(db))
-
+	
 	s := grpc.NewServer() // yangi grpc server yaratildi
 
 	pb.RegisterWeatherServiceServer(s, lib) // serverda service ni metodlari ishlash uchuin register qilinadi
-
-	if err = s.Serve(listener); err != nil {
+	
+	if err = s.Serve(listener); err != nil { // server ga kelgan ma`lumotlarni shu yearda
 		log.Fatal("error --> ", err.Error())
+
 	}
 
 }
